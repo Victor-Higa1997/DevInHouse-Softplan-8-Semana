@@ -8,14 +8,17 @@ export const Repositorio = (props) => {
     return (
 
         <article className={styles.article}>
-            <h3 className={styles.h3}>{titulo}</h3>
+            
 
             {destacar === true ?  
             (
-            <p>{descricao}</p>
+                <div className={styles.container}>
+                    <h3 className={styles.h3}>{titulo}</h3>
+                    <p className={styles.descricao} >{descricao}</p>
+                </div>
             ) : 
             (
-            <p></p>
+                null
             )
             }
         </article>

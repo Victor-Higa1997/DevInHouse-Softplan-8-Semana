@@ -4,32 +4,35 @@ import { Repositorio } from './components/data';
 import { Resumo } from './components/data/Resumo';
 
 function App() {
-  /* const lista_repositorios = [
-  {id:'1', titulo:'teste1', descricao:'descricao1'},
-  {id:'2', titulo:'teste2', descricao:'descricao2'},
-  {id:'3', titulo:'teste3', descricao:'descricao3'},
-  {id:'4', titulo:'teste4', descricao:'descricao4'},
-  {id:'5', titulo:'teste5', descricao:'descricao5'}
-  ] */
+  const lista_repositorios = [
+    { id: '1', titulo: 'Back-end Developer', descricao: '- Dsenvolvedor Back-end, utilizando C#.', destacar: true  },
+    { id: '2', titulo: 'DBA', descricao: '- Criação de BD, utilizando o SQL Server. ', destacar: true }
+  ]
 
   return (
     <div className="App">
 
-      {/* {
-      lista_repositorios.length === 0 ? (<p>Nenhum Repositório Disponivel</p>)
-      :
-      (lista_repositorios.map((array) =>(
-          <h1 key={array.id}> {array.id} - {array.titulo} - {array.descricao}</h1>
-        )))
-      } */}
-      <section class='container'>
-      <h1>{Date()}</h1>
-      <hr></hr>
-      <Resumo/>
+      <div className='container'>
+        
+          <section>
+            <h1>{Date()}</h1>
+            <hr></hr>
+            <Resumo />
 
-      <hr></hr>
-      <Repositorio/>
-      </section>
+            <hr></hr>
+            <Repositorio />
+
+            {
+              lista_repositorios.length === 0 ? (<p>Nenhum Repositório Disponivel</p>)
+                :
+                (lista_repositorios.map((array) => (
+                  <Repositorio titulo={array.titulo} descricao={array.descricao} destacar={array.destacar}/>
+                )))
+            }
+          </section>
+        
+      </div>
+
     </div>
   );
 }
